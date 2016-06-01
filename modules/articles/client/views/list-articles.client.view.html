@@ -1,0 +1,14 @@
+<section>
+  <div class="page-header">
+    <h1>Employee Directory</h1>
+  </div>
+  <div class="list-group">
+    <a ng-repeat="article in vm.articles" ui-sref="articles.view({ articleId: article._id })" class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="article.title"></h4>
+      <p class="list-group-item-text" ng-bind="(article.content | uppercase)"> </p>
+    </a>
+  </div>
+  <div class="alert alert-warning text-center" ng-if="vm.articles.$resolved && !vm.articles.length">
+    No articles yet, why don't you <a ui-sref="articles.create">create one</a>?
+  </div>
+</section>
